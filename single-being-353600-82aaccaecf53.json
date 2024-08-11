@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "single-being-353600",
+  "private_key_id": "82aaccaecf53bc9000e52e299e0ed57711fc2625",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDlY8UQ9e+v1gCX\n6v0UfI7SDf+C8qLci8VGUl9e4IyuBlLPAmMJ4sshTGfiG8jVLM9zLj1pyQOCYNZT\nCz4ZcogjNtI2DHvV3duwjxOr8VN+sSYMu66FqJd+se2Qao8PrEkSSdxduNm5ezIC\nPjYENbfUrAJupAIuzMKgEG9requieotk4C+49DlCD78va5J+O7hTZj1p2YLJlZpX\n5z8gM52wvnelKk8SQGZPmwKqLx1bLMjh6QU3lLi+3xkrmWq0w53M0VLzO5m1srhD\n9uxMYZAPnYBguHBLlC36NZhKmzu6rIqIny6GUWQ4OM+gTHewQYh/1jSY1SqmUGv5\nElfFOsjnAgMBAAECggEAIHnoGBchqJzdN6Tq0MAzvjSCJMlyWlQliWe3HekfsbGu\nfqVhXTBxPtUg7get/tRZyH5W7oepigdowJgaYiLveEDWMRXCYIyJAm23RMQlZI3z\nC6F0u3KbhDHvpt8XQwpKzB6N5uz5UkPJWDzzi9QJI0B5Fa39qx+NPHknNSnIa/e1\n4Q2aBe0xkt1THJ6pbR6GYopSny+umnJuq0Kv7vpuPq/LK+td/9te07c/oEo0NyH3\n7ND4lHgss3r35wWGDzD9q3DckqZgJk9rcJGijSvkFXAXe89gMd0IhSYz0QHUR/YA\n5Ce519SOAvwvItJ4mU8XrgvnS8ZXVCNRvYzE3d6dXQKBgQD8VbCd/Y5VN7WaDEWK\n260Ogv5+QtLJ7vIoTVeupZhGNZGO9j9VouVRgcD+h9e1+U4cmq1kGYhBTNn1FnOY\nsWXYfOB2rG9Tb/Ke6FhImwdN6KKqRJF/q1qLQ83J7UbE5qTkcQQxJmk5lqrGcZtw\n1v0k71xZqHnfLhL2cQJgvVaswwKBgQDouMIyoE/ReGZ6jz3Bq80vBSATUUlqHtr7\ndw0fx8EJyFhv5jVf9KnnGQi7RCGBXQlQD/jAoKfoXqWR8uxt9qVGmqDAJcX5vp+J\nAPt3A9mqQa7I7KGNf/OZkzGT3dfe3VkBA0ujl9J8EFb5sKeGIWlVSEhgLt+PxV2e\nj/sKLMfBDQKBgQDTGDSa10W9UM+hweZjlgcefsO8iNaijD0VLi7OMkZDZgkRWjv9\nvjqthykXRjlVSOzpzRSFCz8Lsekcud2WvcF/7Ggzn2m6mYqVGbbRdrAToyyB2L8H\n2Sf0HZMI/HEZxAHqAgoJvCKHRN41CVGKgrBft8bAUssxw++lL0FYAM2D1QKBgEHC\ny6VwpX1kj1i8l0/d0zohMaIjyyIAnBKI3p2HXaX9BfiAzb5SrZwO9+eq5ejfOF12\nVe1guHGyJQkr4uFj2+oqkZgaVGoxEnWtYGGOJfi1XMWMEE6ixFw2OsE04+YnGBpw\nKvSMVz8Vgu5Fm+EMGe6uYT1EoYnH1J+UwfRrGPsVAoGBANmWOg152NGaXAvXfFnv\nwRx290Yy3mCNRO/ngmd/ze57oRcqqCiUldxfbe7dx0LaTcYaO3KcMu8nzNsbTzzc\nyQnxhUNXi8oyldIMavNp270SMnbH6ZFUZA+ACBFCEu8SQ6SKKw6KEXkcf2NkHQz7\nuI5ftCRA2klrtoX2d5x/rr36\n-----END PRIVATE KEY-----\n",
+  "client_email": "scipio-server@single-being-353600.iam.gserviceaccount.com",
+  "client_id": "105663390451667538463",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/scipio-server%40single-being-353600.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
