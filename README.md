@@ -11,3 +11,4 @@ Alma is a student information system (SIS) used by Foundation Academies Charter 
 - **Alma API Student Grade-Level**: Retrieving the grade level id and the corresponding student id.
 - **Alma API Student Grade-Level ID**: Retrieving the grade level id and the corresponding grade values, e.g. 1,2, etc.
 - **Alma API Students**: Retrieving student data.
+- **Alma API Student Attendance**: Retrieving student attendance data.
