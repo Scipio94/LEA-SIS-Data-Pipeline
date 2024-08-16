@@ -11,13 +11,33 @@ Alma is a student information system (SIS) used by Foundation Academies Charter 
 - **Alma API Student Grade-Level**: Retrieving the grade level id and the corresponding student id.
 - **Alma API Student Grade-Level ID**: Retrieving the grade level id and the corresponding grade values, e.g. 1,2, etc.
 - **Alma API Students**: Retrieving student data.
-- 
+- **Crontab-File**: Explanation and logic on automating relevant python files
 
-## Automation
+## Cronjob Automation
 The files above were saved in **.ipynb** format, ***Interactive Python Notebook***, JSON based files that contain code cells, markdown, and metadata and is meant to be ran in a Jupyter Notebook environment. However, for the files to be automated the files need to be saved as **.py** format, a plain text file and can be directly executed by a Python interpreter.
 
 1. Download relevant files to .py
-2. Access Terminal and complete the following steps
+2. Access Terminal
+3. Access the cronjob command window
+4. Insert the following commands:
+~~~ cronjob
+* * * * * command_to_execute
+- - - - -
+| | | | |
+| | | | +---- Day of the week (0 - 7) (Sunday is both 0 and 7)
+| | | +------ Month (1 - 12)
+| | +-------- Day of the month (1 - 31)
+| +---------- Hour (0 - 23)
++------------ Minute (0 - 59)
+
+30 7 * * 1-5 /Users/scipio/anaconda3/bin/python3 /Users/scipio/Alma_API_Scripts/Alma_API_Student_Grade_Level_ID.py
+30 7 * * 1-5 /Users/scipio/anaconda3/bin/python3 /Users/scipio/Alma_API_Scripts/Alma_API_Student_Grade_Level.py
+30 7 * * 1-5 /Users/scipio/anaconda3/bin/python3 /Users/scipio/Alma_API_Scripts/Alma_API_Students.py
+
+# schedules command to be ran at 7:30AM of everyday of every month Monday through Friday
+~~~
+5. Save the cronjob command and exit cronjob window
+
 
 ## BigQiery Authentification
 1. Ensure that there is Google Cloud service account key JSON file. This file is necessary for authenticating your Python script with Google Cloud.
