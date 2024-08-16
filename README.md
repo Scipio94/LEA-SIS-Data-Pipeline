@@ -11,11 +11,18 @@ Alma is a student information system (SIS) used by Foundation Academies Charter 
 - **Alma API Student Grade-Level**: Retrieving the grade level id and the corresponding student id.
 - **Alma API Student Grade-Level ID**: Retrieving the grade level id and the corresponding grade values, e.g. 1,2, etc.
 - **Alma API Students**: Retrieving student data.
+- 
+
+## Automation
+The files above were saved in **.ipynb** format, ***Interactive Python Notebook***, JSON based files that contain code cells, markdown, and metadata and is meant to be ran in a Jupyter Notebook environment. However, for the files to be automated the files need to be saved as **.py** format, a plain text file and can be directly executed by a Python interpreter.
+
+1. Download relevant files to .py
+2. Access Terminal and complete the following steps
 
 ## BigQiery Authentification
 1. Ensure that there is Google Cloud service account key JSON file. This file is necessary for authenticating your Python script with Google Cloud.
 2. Import the following package and enter the script to authenticate the Google Service Account
-~~~ pyton
+~~~ python
 from google.oauth2 import service_account
 
 # replace file path with file path of JSON authentification file
