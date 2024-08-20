@@ -61,16 +61,19 @@ r_fca_att = response_fca_att.json()
 r_fca_att = r_fca_att['response']
 
 
-# In[5]:
+# In[4]:
 
 
 # creating dataframe for attendance extraction for fca student
 fca_att_df = pd.DataFrame(r_fca_att)
 
+# adding primary key student_id
+fca_att_df['student_id'] = '60ca0ec59d6473552c13452b'
+
 
 # ### Extraction of Student Attendance Data FACS 363
 
-# In[6]:
+# In[5]:
 
 
 # Defining credential api_key and auth_secret 
@@ -98,37 +101,45 @@ r_363_att = response_363_att.json()
 r_363_att = r_363_att['response']
 
 
-# In[7]:
+# In[6]:
 
 
 # creating a df for the 
 facs_363_df = pd.DataFrame(r_363_att)
 
+facs_363_df['student_id'] = '60c9f24cb85e9d5e074016cf'
 
-# In[8]:
+
+# In[7]:
 
 
 # concating dfs from resoective campuses
 df = pd.concat([fca_att_df,facs_363_df])
 
 
-# In[9]:
+# In[8]:
 
 
 df.shape
 
 
-# In[10]:
+# In[9]:
 
 
 df.info()
 
 
-# In[11]:
+# In[10]:
 
 
 # returning relevaant columns
-df = df[['id', 'date','status']]
+df = df[['student_id', 'date','status']]
+
+
+# In[11]:
+
+
+df
 
 
 # ### Load
@@ -140,5 +151,5 @@ df = df[['id', 'date','status']]
 table_id = 'Alma_Data_API.Student_Attendance'
 
 # loading df to the BigQuery database to append data to table with each upload
-df.to_gbq(table_id, project_id=credentials.project_id, if_exists='append', credentials=credentials)
+df.to_gbq(table_id, project_id=credentials.project_id, if_exists='replace', credentials=credentials)
 
