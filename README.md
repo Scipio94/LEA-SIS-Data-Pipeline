@@ -1,6 +1,6 @@
 # Alma API Data Pipeline
+![Alma-API-Data-Pipeline (1)](https://github.com/user-attachments/assets/5616a106-e6bd-4e7a-ae6d-a6d050a852b9)
 
-![Alma-API-Data-Pipeline](https://github.com/user-attachments/assets/ae10c7ca-d5f7-44c4-a4ee-71a103fa42da)
 
 ## Alma
 
