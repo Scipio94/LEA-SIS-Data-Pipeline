@@ -35,8 +35,10 @@ The files above were saved in **.ipynb** format, ***Interactive Python Notebook*
 30 7 * * 1-5 /Users/scipio/anaconda3/bin/python3 /Users/scipio/Alma_API_Scripts/Alma_API_Student_Grade_Level_ID.py
 30 7 * * 1-5 /Users/scipio/anaconda3/bin/python3 /Users/scipio/Alma_API_Scripts/Alma_API_Student_Grade_Level.py
 30 7 * * 1-5 /Users/scipio/anaconda3/bin/python3 /Users/scipio/Alma_API_Scripts/Alma_API_Students.py
+30 16 * * 1-5 /Users/scipio/anaconda3/bin/python3 /Users/scipio/Alma_API_Scripts/Alma_API_Student_Attendance.py
 
 # schedules command to be ran at 7:30AM of everyday of every month Monday through Friday
+# schedules command to be ran at 4:30 PM of everyday of every month Monday through Friday
 ~~~
 5. Save the cronjob command and exit cronjob window
 
