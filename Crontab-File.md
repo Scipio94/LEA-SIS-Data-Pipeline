@@ -21,6 +21,7 @@
 30 7 * * 1-5 /Users/scipio/anaconda3/bin/python3 /Users/scipio/Alma_API_Scripts/Alma_API_Student_Grade_Level_ID.py
 30 7 * * 1-5 /Users/scipio/anaconda3/bin/python3 /Users/scipio/Alma_API_Scripts/Alma_API_Student_Grade_Level.py
 30 7 * * 1-5 /Users/scipio/anaconda3/bin/python3 /Users/scipio/Alma_API_Scripts/Alma_API_Students.py
+30 16 * * 1-5 /Users/scipio/anaconda3/bin/python3 /Users/scipio/Alma_API_Scripts/Alma_API_Student_Attendance.py
 ~~~
 2. Press 'esc' tab: exits the insert mode
 3. Press ':wq' - saves the command
@@ -28,5 +29,6 @@
   - 'w' - write
   - 'q' - quit
 
-The cronjob syntax aboev schedules the .py files to be ran externally at 7:30 AM daily everyday of every month Monday through Friday
+The cronjob syntax above schedules the .py files to be ran externally at 7:30 AM daily everyday of every month Monday through Friday
+The cronjob syntax above schedules the .py file Alma_API_Student_Attendance be to ran at 4:30 PM of everyday of every month Monday through Friday
 
