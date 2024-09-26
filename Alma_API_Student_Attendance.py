@@ -42,7 +42,16 @@ api_key = '075DWGKCVHTEH1W6497W'
 auth_secret = 'JlpYYSZUVjVWZGpQN2JKSndPRHM0TV9maChtU3VONkJvakhfaGVjUQ=='
 
 # URL of the API endpoint FCA
-url= 'https://facs.api.getalma.com/v2/fca/students/60ca0ec59d6473552c13452b/attendance?schoolYearId=65e8a8461e0c3dd517076bcf' # --> will return grade level ids
+
+#url endpoint to return attendance data of Jaden McKellar
+url1= 'https://facs.api.getalma.com/v2/fca/students/60ca0ea65a24b06c6a107faf/attendance?schoolYearId=65e8a8461e0c3dd517076bcf'
+
+#url endpoint to return attendance data of Melvin McKellar
+url2= 'https://facs.api.getalma.com/v2/fca/students/60ca3aa494882a4b7d791aef/attendance?schoolYearId=65e8a8461e0c3dd517076bcf'
+
+# url endpoint to return attendance data of Julian Tineo
+url3= 'https://facs.api.getalma.com/v2/fca/students/60ca0eb4832dc100d146db46/attendance?schoolYearId=65e8a8461e0c3dd517076bcf'
+
 
 # Headers
 headers = {
@@ -52,23 +61,38 @@ headers = {
 
 
 # Make the GET request with Digest Authentication
-response_fca_att = requests.get(url, headers=headers, auth=HTTPDigestAuth(api_key, auth_secret))
+response_fca_att1 = requests.get(url1, headers=headers, auth=HTTPDigestAuth(api_key, auth_secret))
+response_fca_att2 = requests.get(url2, headers=headers, auth=HTTPDigestAuth(api_key, auth_secret))
+response_fca_att3 = requests.get(url3, headers=headers, auth=HTTPDigestAuth(api_key, auth_secret))
+
 
 # Making GET request into a json object
-r_fca_att = response_fca_att.json()
+r_fca_att1 = response_fca_att1.json()
+r_fca_att2 = response_fca_att2.json()
+r_fca_att3 = response_fca_att3.json()
 
 # Accessing 'response' key value to return lists of dictionaries
-r_fca_att = r_fca_att['response']
+r_fca_att1 = r_fca_att1['response']
+r_fca_att2 = r_fca_att2['response']
+r_fca_att3 = r_fca_att3['response']
 
 
 # In[4]:
 
 
 # creating dataframe for attendance extraction for fca student
-fca_att_df = pd.DataFrame(r_fca_att)
+fca_att_df1 = pd.DataFrame(r_fca_att1)
+fca_att_df2 = pd.DataFrame(r_fca_att2)
+fca_att_df3 = pd.DataFrame(r_fca_att3)
 
-# adding primary key student_id
-fca_att_df['student_id'] = '60ca0ec59d6473552c13452b'
+# adding primary key student_id of Jaden McKellar
+fca_att_df1['student_id'] = '60ca0ea65a24b06c6a107faf'
+
+# adding primary key student_id Melvin McKellar
+fca_att_df2['student_id'] = '60ca3aa494882a4b7d791aef'
+
+# adding primary key student_ id Julian Tineo
+fca_att_df3['student_id'] = '60ca0eb4832dc100d146db46'
 
 
 # ### Extraction of Student Attendance Data FACS 363
@@ -81,7 +105,16 @@ api_key = '075DWGKCVHTEH1W6497W'
 auth_secret = 'JlpYYSZUVjVWZGpQN2JKSndPRHM0TV9maChtU3VONkJvakhfaGVjUQ=='
 
 # URL of the API endpoint FCA
-url= 'https://facs.api.getalma.com/v2/facs363/students/60c9f24cb85e9d5e074016cf/attendance?schoolYearId=664cc55127c6b4a81806658b' # --> will return grade level ids
+
+# url endpoint to return attendance data of Miabella Tineo
+url1= 'https://facs.api.getalma.com/v2/facs363/students/60c9f26d1f86da023b455d96/attendance?schoolYearId=664cc55127c6b4a81806658b' # --> will return grade level ids
+
+# url endpoint to return attendance data of Jordan Tineo
+url2= 'https://facs.api.getalma.com/v2/facs363/students/60c9feef7f8d901080325e07/attendance?schoolYearId=664cc55127c6b4a81806658b'
+
+# url endpoint to return attendance data of Jaelyon Tineo
+url3= 'https://facs.api.getalma.com/v2/facs363/students/60c9fefbee570b7782727eee/attendance?schoolYearId=664cc55127c6b4a81806658b'
+
 
 # Headers
 headers = {
@@ -91,55 +124,60 @@ headers = {
 
 
 # Make the GET request with Digest Authentication
-response_363_att = requests.get(url, headers=headers, auth=HTTPDigestAuth(api_key, auth_secret))
+response_363_att1 = requests.get(url1, headers=headers, auth=HTTPDigestAuth(api_key, auth_secret))
+response_363_att2 = requests.get(url2, headers=headers, auth=HTTPDigestAuth(api_key, auth_secret))
+response_363_att3 = requests.get(url3, headers=headers, auth=HTTPDigestAuth(api_key, auth_secret))
 
 # Making GET requests into a json object
-r_363_att = response_363_att.json()
-
+r_363_att1 = response_363_att1.json()
+r_363_att2 = response_363_att2.json()
+r_363_att3 = response_363_att3.json()
 
 # Accessing 'response' key value to return lists of dictionaries
-r_363_att = r_363_att['response']
+r_363_att1 = r_363_att1['response']
+r_363_att2 = r_363_att2['response']
+r_363_att3 = r_363_att3['response']
 
 
 # In[6]:
 
 
 # creating a df for the 
-facs_363_df = pd.DataFrame(r_363_att)
+facs_363_df1 = pd.DataFrame(r_363_att1)
+facs_363_df2 = pd.DataFrame(r_363_att2)
+facs_363_df3 = pd.DataFrame(r_363_att3)
 
-facs_363_df['student_id'] = '60c9f24cb85e9d5e074016cf'
+# adding student_ id for Miabella Tineo 60c9f26d1f86da023b455d96
+facs_363_df1['student_id'] = '60c9f26d1f86da023b455d96'
+
+# adding student_id for Jordan Tineo 60c9feef7f8d901080325e07
+facs_363_df2['student_id'] = '60c9feef7f8d901080325e07'
+
+# adding student_id for Jaelyon Tineo
+facs_363_df3['student_id'] = '60c9fefbee570b7782727eee'
 
 
 # In[7]:
 
 
 # concating dfs from resoective campuses
-df = pd.concat([fca_att_df,facs_363_df])
+df = pd.concat([fca_att_df1,fca_att_df2,fca_att_df3,facs_363_df1,facs_363_df2,facs_363_df3])
+
+# returning relevaant columns
+df = df[['student_id', 'date','status']]
 
 
 # In[8]:
-
-
-df.shape
-
-
-# In[9]:
-
-
-df.info()
-
-
-# In[10]:
 
 
 # returning relevaant columns
 df = df[['student_id', 'date','status']]
 
 
-# In[11]:
+# In[9]:
 
 
-df
+df['student_id'].unique()
 
 
 # ### Load
