@@ -87,12 +87,15 @@ fca_att_df3 = pd.DataFrame(r_fca_att3)
 
 # adding primary key student_id of Jaden McKellar
 fca_att_df1['student_id'] = '60ca0ea65a24b06c6a107faf'
+fca_att_df1['district'] = 'Rancocas Valley Regional High School'
 
 # adding primary key student_id Melvin McKellar
 fca_att_df2['student_id'] = '60ca3aa494882a4b7d791aef'
+fca_att_df2['district'] = 'Rancocas Valley Regional High School'
 
 # adding primary key student_ id Julian Tineo
 fca_att_df3['student_id'] = '60ca0eb4832dc100d146db46'
+fca_att_df3['district'] = "Penn's Grove"
 
 
 # ### Extraction of Student Attendance Data FACS 363
@@ -149,12 +152,16 @@ facs_363_df3 = pd.DataFrame(r_363_att3)
 
 # adding student_ id for Miabella Tineo 60c9f26d1f86da023b455d96
 facs_363_df1['student_id'] = '60c9f26d1f86da023b455d96'
+facs_363_df1['district'] = "Penn's Grove"
+
 
 # adding student_id for Jordan Tineo 60c9feef7f8d901080325e07
 facs_363_df2['student_id'] = '60c9feef7f8d901080325e07'
+facs_363_df2['district'] = "Penn's Grove"
 
 # adding student_id for Jaelyon Tineo
 facs_363_df3['student_id'] = '60c9fefbee570b7782727eee'
+facs_363_df3['district'] = "Penn's Grove"
 
 
 # In[7]:
@@ -164,25 +171,12 @@ facs_363_df3['student_id'] = '60c9fefbee570b7782727eee'
 df = pd.concat([fca_att_df1,fca_att_df2,fca_att_df3,facs_363_df1,facs_363_df2,facs_363_df3])
 
 # returning relevaant columns
-df = df[['student_id', 'date','status']]
-
-
-# In[8]:
-
-
-# returning relevaant columns
-df = df[['student_id', 'date','status']]
-
-
-# In[9]:
-
-
-df['student_id'].unique()
+df = df[['student_id', 'date','status', 'district']]
 
 
 # ### Load
 
-# In[12]:
+# In[8]:
 
 
 # loading into BigQuery database
