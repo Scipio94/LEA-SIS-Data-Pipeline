@@ -15,13 +15,35 @@ import json
 from requests.auth import HTTPDigestAuth
 from google.cloud import bigquery
 from google.oauth2 import service_account
+from dotenv import load_dotenv
+import os
+
+
+# In[2]:
+
+
+env_file_path = '/Users/scipio/Alma_API_Scripts/ALMA_API.env'
+
+
+# In[3]:
+
+
+load_dotenv(dotenv_path = env_file_path )
+
+
+# In[4]:
+
+
+# retrieving releavnt variables from the .env file
+API_KEY = os.getenv('API_KEY')
+AUTH_SECRET = os.getenv('AUTH_SECRET')
 
 
 # **FCA Current School Year**: 65e8a8461e0c3dd517076bcf
 # 
 # **363 Current School Year ID**: 664cc55127c6b4a81806658b
 
-# In[2]:
+# In[5]:
 
 
 # setting up BigQuery authentication
@@ -34,12 +56,12 @@ client = bigquery.Client(credentials=credentials, project=credentials.project_id
 
 # ### Grade Level ids of FCA
 
-# In[3]:
+# In[6]:
 
 
 # Defining credential api_key and auth_secret 
-api_key = '075DWGKCVHTEH1W6497W'
-auth_secret = 'JlpYYSZUVjVWZGpQN2JKSndPRHM0TV9maChtU3VONkJvakhfaGVjUQ=='
+api_key = API_KEY
+auth_secret = AUTH_SECRET
 
 # URL of the API endpoint FCA with school year id query
 url= 'https://facs.api.getalma.com/v2/fca/grade-levels?schoolYearId=65e8a8461e0c3dd517076bcf' # --> will return grade level ids
@@ -57,7 +79,7 @@ response_fca = requests.get(url, headers=headers, auth=HTTPDigestAuth(api_key, a
 r_fca = response_fca.json()
 
 
-# In[4]:
+# In[7]:
 
 
 # seperating key value pairs
@@ -67,7 +89,7 @@ for key,value in r_fca.items():
 
 # ### Transformation
 
-# In[5]:
+# In[8]:
 
 
 # creating df from dictionary object
@@ -87,12 +109,12 @@ grade_df_fca.rename(columns = {'gradeLevelAbbr':'Grade', 'id':'Grade_Level_ID'},
 
 # ### Grade Levels FACS363
 
-# In[6]:
+# In[9]:
 
 
 # Defining credential api_key and auth_secret 
-api_key = '075DWGKCVHTEH1W6497W'
-auth_secret = 'JlpYYSZUVjVWZGpQN2JKSndPRHM0TV9maChtU3VONkJvakhfaGVjUQ=='
+api_key = API_KEY
+auth_secret = AUTH_SECRET
 
 # URL of the API endpoint FACS 363 with school year id query
 url= 'https://facs.api.getalma.com/v2/facs363/grade-levels?schoolYearId=664cc55127c6b4a81806658b' # --> will return grade level ids
@@ -110,7 +132,7 @@ response_facs_363 = requests.get(url, headers=headers, auth=HTTPDigestAuth(api_k
 r_facs_363 = response_facs_363.json()
 
 
-# In[7]:
+# In[10]:
 
 
 # seperating key value pairs
@@ -120,7 +142,7 @@ for key,value in r_facs_363.items():
 
 # ### Transformation
 
-# In[8]:
+# In[11]:
 
 
 # creating df from dictionary object
@@ -137,7 +159,7 @@ grade_df_facs_363 = grade_df_facs_363[['id','equivalent']]
 grade_df_facs_363.rename(columns = {'equivalent':'Grade', 'id':'Grade_Level_ID'}, inplace = True)
 
 
-# In[9]:
+# In[12]:
 
 
 # concating df
@@ -147,19 +169,19 @@ grade_level_id = pd.concat([grade_df_fca,grade_df_facs_363])
 grade_level_id['Grade'] = grade_level_id['Grade'].astype('string')
 
 
-# In[10]:
+# In[13]:
 
 
 grade_level_id.shape
 
 
-# In[11]:
+# In[14]:
 
 
 grade_level_id.info()
 
 
-# In[12]:
+# In[15]:
 
 
 grade_level_id
@@ -167,7 +189,7 @@ grade_level_id
 
 # ### Load
 
-# In[13]:
+# In[16]:
 
 
 # loading into BigQuery database

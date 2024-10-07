@@ -15,13 +15,35 @@ import json
 from requests.auth import HTTPDigestAuth
 from google.cloud import bigquery
 from google.oauth2 import service_account
+from dotenv import load_dotenv
+import os
+
+
+# In[2]:
+
+
+env_file_path = '/Users/scipio/Alma_API_Scripts/ALMA_API.env'
+
+
+# In[3]:
+
+
+load_dotenv(dotenv_path = env_file_path )
+
+
+# In[4]:
+
+
+# retrieving releavnt variables from the .env file
+API_KEY = os.getenv('API_KEY')
+AUTH_SECRET = os.getenv('AUTH_SECRET')
 
 
 # **FCA Current School Year**: 65e8a8461e0c3dd517076bcf
 # 
 # **363 Current School Year ID**: 664cc55127c6b4a81806658b
 
-# In[2]:
+# In[5]:
 
 
 # setting up BigQuery authentication
@@ -34,12 +56,12 @@ client = bigquery.Client(credentials=credentials, project=credentials.project_id
 
 # ### Extraction of Student Attendance Data FCA
 
-# In[3]:
+# In[6]:
 
 
 # Defining credential api_key and auth_secret 
-api_key = '075DWGKCVHTEH1W6497W'
-auth_secret = 'JlpYYSZUVjVWZGpQN2JKSndPRHM0TV9maChtU3VONkJvakhfaGVjUQ=='
+api_key = API_KEY
+auth_secret = AUTH_SECRET 
 
 # URL of the API endpoint FCA
 
@@ -77,7 +99,7 @@ r_fca_att2 = r_fca_att2['response']
 r_fca_att3 = r_fca_att3['response']
 
 
-# In[4]:
+# In[7]:
 
 
 # creating dataframe for attendance extraction for fca student
@@ -100,12 +122,12 @@ fca_att_df3['district'] = "Penn's Grove"
 
 # ### Extraction of Student Attendance Data FACS 363
 
-# In[5]:
+# In[8]:
 
 
 # Defining credential api_key and auth_secret 
-api_key = '075DWGKCVHTEH1W6497W'
-auth_secret = 'JlpYYSZUVjVWZGpQN2JKSndPRHM0TV9maChtU3VONkJvakhfaGVjUQ=='
+api_key = API_KEY
+auth_secret = AUTH_SECRET 
 
 # URL of the API endpoint FCA
 
@@ -142,7 +164,7 @@ r_363_att2 = r_363_att2['response']
 r_363_att3 = r_363_att3['response']
 
 
-# In[6]:
+# In[9]:
 
 
 # creating a df for the 
@@ -164,7 +186,7 @@ facs_363_df3['student_id'] = '60c9fefbee570b7782727eee'
 facs_363_df3['district'] = "Penn's Grove"
 
 
-# In[7]:
+# In[10]:
 
 
 # concating dfs from resoective campuses
@@ -176,7 +198,7 @@ df = df[['student_id', 'date','status', 'district']]
 
 # ### Load
 
-# In[8]:
+# In[11]:
 
 
 # loading into BigQuery database

@@ -16,13 +16,35 @@ import json
 from requests.auth import HTTPDigestAuth
 from google.cloud import bigquery
 from google.oauth2 import service_account
+from dotenv import load_dotenv
+import os
 
 
-# **FCA Current School Year**: 65e8a8461e0c3dd517076bcf
+# In[2]:
+
+
+env_file_path = '/Users/scipio/Alma_API_Scripts/ALMA_API.env'
+
+
+# In[3]:
+
+
+load_dotenv(dotenv_path = env_file_path )
+
+
+# In[4]:
+
+
+# retrieving releavnt variables from the .env file
+API_KEY = os.getenv('API_KEY')
+AUTH_SECRET = os.getenv('AUTH_SECRET')
+
+
+# **FCA Current School Year**: 65e8a8461e0c3dd517076bcf 
 # 
 # **363 Current School Year ID**: 664cc55127c6b4a81806658b
 
-# In[2]:
+# In[5]:
 
 
 # setting up BigQuery authentication
@@ -35,12 +57,13 @@ client = bigquery.Client(credentials=credentials, project=credentials.project_id
 
 # ### Extraction of Student Data FCA
 
-# In[3]:
+# In[6]:
 
 
 # Defining credential api_key and auth_secret 
-api_key = '075DWGKCVHTEH1W6497W'
-auth_secret = 'JlpYYSZUVjVWZGpQN2JKSndPRHM0TV9maChtU3VONkJvakhfaGVjUQ=='
+api_key = API_KEY
+auth_secret = AUTH_SECRET
+
 
 # URL of the API endpoint FCA 2024-2025 SY
 url= 'https://facs.api.getalma.com/v2/fca/students?schoolYearId=65e8a8461e0c3dd517076bcf' 
@@ -87,12 +110,12 @@ df_r_fca['race'] = df_r_fca.apply(race, axis = 1)
 
 # ### Extraction of Student Data 363
 
-# In[4]:
+# In[7]:
 
 
 # Defining credential api_key and auth_secret 
-api_key = '075DWGKCVHTEH1W6497W'
-auth_secret = 'JlpYYSZUVjVWZGpQN2JKSndPRHM0TV9maChtU3VONkJvakhfaGVjUQ=='
+api_key = API_KEY
+auth_secret = AUTH_SECRET
 
 # URL of the API endpoint FACS 2024-2025 SY
 url= 'https://facs.api.getalma.com/v2/facs363/students?schoolYearId=664cc55127c6b4a81806658b' 
@@ -138,7 +161,7 @@ df_r_363['race'] = df_r_363.apply(race, axis = 1)
 
 # ### Transformation
 
-# In[5]:
+# In[8]:
 
 
 #concating df_r_fca and df_r_363
@@ -155,19 +178,19 @@ df = df[['id','schoolId','stateId','firstName', 'lastName','gender',
 df = df[~df.duplicated()]
 
 
-# In[6]:
+# In[9]:
 
 
 df.shape
 
 
-# In[7]:
+# In[10]:
 
 
 df.head()
 
 
-# In[8]:
+# In[11]:
 
 
 df.info()
@@ -175,7 +198,7 @@ df.info()
 
 # ### Load
 
-# In[9]:
+# In[12]:
 
 
 # loading into BigQuery database
