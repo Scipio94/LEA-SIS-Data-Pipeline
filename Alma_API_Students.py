@@ -49,7 +49,7 @@ AUTH_SECRET = os.getenv('AUTH_SECRET')
 
 # setting up BigQuery authentication
 credentials = service_account.Credentials.from_service_account_file(
-    '/Users/scipio/Downloads/single-being-353600-82aaccaecf53.json'
+    '/Users/scipio/Alma_API_Scripts/single-being-353600-adc0535ffe93.json'
                                                                    )
 #initializing BigQuery client
 client = bigquery.Client(credentials=credentials, project=credentials.project_id)

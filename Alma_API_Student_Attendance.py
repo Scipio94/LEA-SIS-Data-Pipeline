@@ -5,7 +5,7 @@
 # 
 # Writing a code that returns the attendance data of a signle student from the Alma API url endpoint
 
-# In[1]:
+# In[12]:
 
 
 #importing relevant packages
@@ -19,19 +19,19 @@ from dotenv import load_dotenv
 import os
 
 
-# In[2]:
+# In[13]:
 
 
 env_file_path = '/Users/scipio/Alma_API_Scripts/ALMA_API.env'
 
 
-# In[3]:
+# In[14]:
 
 
 load_dotenv(dotenv_path = env_file_path )
 
 
-# In[4]:
+# In[15]:
 
 
 # retrieving releavnt variables from the .env file
@@ -43,12 +43,12 @@ AUTH_SECRET = os.getenv('AUTH_SECRET')
 # 
 # **363 Current School Year ID**: 664cc55127c6b4a81806658b
 
-# In[5]:
+# In[16]:
 
 
 # setting up BigQuery authentication
 credentials = service_account.Credentials.from_service_account_file(
-    '/Users/scipio/Downloads/single-being-353600-82aaccaecf53.json'
+    '/Users/scipio/Alma_API_Scripts/single-being-353600-adc0535ffe93.json'
                                                                    )
 #initializing BigQuery client
 client = bigquery.Client(credentials=credentials, project=credentials.project_id)
@@ -56,7 +56,7 @@ client = bigquery.Client(credentials=credentials, project=credentials.project_id
 
 # ### Extraction of Student Attendance Data FCA
 
-# In[6]:
+# In[17]:
 
 
 # Defining credential api_key and auth_secret 
@@ -99,7 +99,7 @@ r_fca_att2 = r_fca_att2['response']
 r_fca_att3 = r_fca_att3['response']
 
 
-# In[7]:
+# In[18]:
 
 
 # creating dataframe for attendance extraction for fca student
@@ -122,7 +122,7 @@ fca_att_df3['district'] = "Penn's Grove"
 
 # ### Extraction of Student Attendance Data FACS 363
 
-# In[8]:
+# In[19]:
 
 
 # Defining credential api_key and auth_secret 
@@ -164,7 +164,7 @@ r_363_att2 = r_363_att2['response']
 r_363_att3 = r_363_att3['response']
 
 
-# In[9]:
+# In[20]:
 
 
 # creating a df for the 
@@ -186,7 +186,7 @@ facs_363_df3['student_id'] = '60c9fefbee570b7782727eee'
 facs_363_df3['district'] = "Penn's Grove"
 
 
-# In[10]:
+# In[21]:
 
 
 # concating dfs from resoective campuses
@@ -198,7 +198,7 @@ df = df[['student_id', 'date','status', 'district']]
 
 # ### Load
 
-# In[11]:
+# In[22]:
 
 
 # loading into BigQuery database
