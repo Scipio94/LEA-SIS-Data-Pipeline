@@ -5,7 +5,7 @@
 # 
 # Writing a code that returns the attendance data of a signle student from the Alma API url endpoint
 
-# In[12]:
+# In[1]:
 
 
 #importing relevant packages
@@ -19,44 +19,46 @@ from dotenv import load_dotenv
 import os
 
 
-# In[13]:
+# In[2]:
 
 
 env_file_path = '/Users/scipio/Alma_API_Scripts/ALMA_API.env'
+google_auth_env_file_path = '/Users/scipio/Alma_API_Scripts/GOOG_AUTH.env'
 
 
-# In[14]:
+# In[3]:
 
 
 load_dotenv(dotenv_path = env_file_path )
+load_dotenv(dotenv_path = google_auth_env_file_path)
 
 
-# In[15]:
+# In[4]:
 
 
 # retrieving releavnt variables from the .env file
 API_KEY = os.getenv('API_KEY')
 AUTH_SECRET = os.getenv('AUTH_SECRET')
+google_credentials_path = os.getenv('GOOGLE_CREDENTIALS')
 
 
 # **FCA Current School Year**: 65e8a8461e0c3dd517076bcf
 # 
 # **363 Current School Year ID**: 664cc55127c6b4a81806658b
 
-# In[16]:
+# In[5]:
 
 
 # setting up BigQuery authentication
-credentials = service_account.Credentials.from_service_account_file(
-    '/Users/scipio/Alma_API_Scripts/single-being-353600-adc0535ffe93.json'
-                                                                   )
+credentials = service_account.Credentials.from_service_account_file(google_credentials_path)
+
 #initializing BigQuery client
 client = bigquery.Client(credentials=credentials, project=credentials.project_id)
 
 
 # ### Extraction of Student Attendance Data FCA
 
-# In[17]:
+# In[6]:
 
 
 # Defining credential api_key and auth_secret 
@@ -99,7 +101,7 @@ r_fca_att2 = r_fca_att2['response']
 r_fca_att3 = r_fca_att3['response']
 
 
-# In[18]:
+# In[7]:
 
 
 # creating dataframe for attendance extraction for fca student
@@ -122,7 +124,7 @@ fca_att_df3['district'] = "Penn's Grove"
 
 # ### Extraction of Student Attendance Data FACS 363
 
-# In[19]:
+# In[8]:
 
 
 # Defining credential api_key and auth_secret 
@@ -164,7 +166,7 @@ r_363_att2 = r_363_att2['response']
 r_363_att3 = r_363_att3['response']
 
 
-# In[20]:
+# In[9]:
 
 
 # creating a df for the 
@@ -186,7 +188,7 @@ facs_363_df3['student_id'] = '60c9fefbee570b7782727eee'
 facs_363_df3['district'] = "Penn's Grove"
 
 
-# In[21]:
+# In[10]:
 
 
 # concating dfs from resoective campuses
@@ -198,7 +200,7 @@ df = df[['student_id', 'date','status', 'district']]
 
 # ### Load
 
-# In[22]:
+# In[11]:
 
 
 # loading into BigQuery database

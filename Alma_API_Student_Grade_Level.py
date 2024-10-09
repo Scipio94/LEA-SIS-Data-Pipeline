@@ -23,12 +23,14 @@ import os
 
 
 env_file_path = '/Users/scipio/Alma_API_Scripts/ALMA_API.env'
+google_auth_env_file_path = '/Users/scipio/Alma_API_Scripts/GOOG_AUTH.env'
 
 
 # In[3]:
 
 
 load_dotenv(dotenv_path = env_file_path )
+load_dotenv(dotenv_path = google_auth_env_file_path)
 
 
 # In[4]:
@@ -37,6 +39,7 @@ load_dotenv(dotenv_path = env_file_path )
 # retrieving releavnt variables from the .env file
 API_KEY = os.getenv('API_KEY')
 AUTH_SECRET = os.getenv('AUTH_SECRET')
+google_credentials_path = os.getenv('GOOGLE_CREDENTIALS')
 
 
 # **FCA Current School Year**: 65e8a8461e0c3dd517076bcf
@@ -47,9 +50,8 @@ AUTH_SECRET = os.getenv('AUTH_SECRET')
 
 
 # setting up BigQuery authentication
-credentials = service_account.Credentials.from_service_account_file(
-    '/Users/scipio/Alma_API_Scripts/single-being-353600-adc0535ffe93.json'
-                                                                   )
+credentials = service_account.Credentials.from_service_account_file(google_credentials_path)
+
 #initializing BigQuery client
 client = bigquery.Client(credentials=credentials, project=credentials.project_id)
 
