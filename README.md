@@ -1,4 +1,4 @@
-# Alma API Data Pipeline
+# LEA SIS API Data Pipeline
 ![Alma-API-Data-Pipeline (1)](https://github.com/user-attachments/assets/5616a106-e6bd-4e7a-ae6d-a6d050a852b9)
 
 
